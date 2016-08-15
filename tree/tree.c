@@ -7,8 +7,9 @@
 #define WIDTH 800
 #define HEIGHT 600
 #define FILENAME "output.ppm"
-#define ITERATIONS 10
-#define ANGLE (M_PI_2 / 5)
+#define ITERATIONS 12           /* how many branches deep */
+#define ANGLE (M_PI_2 / 5)      /* angle between branches */
+#define LENGTH 7                /* length of the branches */
 
 void draw_branch(
     int i,
@@ -20,7 +21,7 @@ void draw_branch(
     if (!i)
         return;
 
-    move_turtle(t1, 6 * i, 1);
+    move_turtle(t1, LENGTH * i, 1);
     t2 = *t1;
     turn_turtle(t1, a);
     turn_turtle(&t2, -a);
